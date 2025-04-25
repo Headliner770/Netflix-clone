@@ -5,6 +5,7 @@ import { ENV_VARS } from "../config/envVars.js";
 export const protectRoute = async (req, res, next) => {
   try {
     const token = req.cookies["jwt-netflix"];
+    console.log("Token from cookie:", token);
 
     if (!token) {
       return res
@@ -13,6 +14,7 @@ export const protectRoute = async (req, res, next) => {
     }
 
     const decoded = jwt.verify(token, ENV_VARS.JWT_SECRET);
+    console.log("Decoded token:", decoded);
 
     if (!decoded) {
       return res
@@ -21,6 +23,7 @@ export const protectRoute = async (req, res, next) => {
     }
 
     const user = await User.findById(decoded.userId).select("-password");
+    console.log("User found:", user);
 
     if (!user) {
       return res
@@ -29,10 +32,9 @@ export const protectRoute = async (req, res, next) => {
     }
 
     req.user = user;
-
     next();
   } catch (error) {
-    console.log("Error in protectRoute midleware:", error.message);
+    console.log("Error in protectRoute middleware:", error.message);
     res.status(500).json({ success: false, message: "Internal Server Error" });
   }
 };
