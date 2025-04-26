@@ -4,6 +4,7 @@
   "description": "",
   "main": "backend/server.js",
   "scripts": {
+    "client": "vite",
     "dev": "node --watch backend/server.js"
   },
   "keywords": [],
@@ -11,6 +12,7 @@
   "type": "module",
   "license": "ISC",
   "dependencies": {
+    "@tailwindcss/vite": "^4.1.4",
     "axios": "^1.8.4",
     "bcryptjs": "^3.0.2",
     "cookie-parser": "^1.4.7",
@@ -20,6 +22,10 @@
     "mongoose": "^8.13.2"
   },
   "devDependencies": {
-    "nodemon": "^3.1.10"
+    "auto": "^11.3.0",
+    "nodemon": "^3.1.10",
+    "postcss": "^8.5.3",
+    "prefixer": "^0.0.3",
+    "tailwindcss": "^4.1.4"
   }
 }
