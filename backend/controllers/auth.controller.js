@@ -19,10 +19,12 @@ export async function signup(req, res) {
     }
 
     if (password.length < 6) {
-      return res.status(400).json({
-        success: false,
-        message: "Password must be at least 6 characters",
-      });
+      return res
+        .status(400)
+        .json({
+          success: false,
+          message: "Password must be at least 6 characters",
+        });
     }
 
     const existingUserByEmail = await User.findOne({ email: email });
@@ -44,7 +46,7 @@ export async function signup(req, res) {
     const salt = await bcryptjs.genSalt(10);
     const hashedPassword = await bcryptjs.hash(password, salt);
 
-    const PROFILE_PICS = ["/awatar1.png", "/awatar2.png", "/awatar3.png"];
+    const PROFILE_PICS = ["/avatar1.png", "/avatar2.png", "/avatar3.png"];
 
     const image = PROFILE_PICS[Math.floor(Math.random() * PROFILE_PICS.length)];
 
@@ -66,7 +68,7 @@ export async function signup(req, res) {
       },
     });
   } catch (error) {
-    console.log("Error in signup controller, error.message");
+    console.log("Error in signup controller", error.message);
     res.status(500).json({ success: false, message: "Internal server error" });
   }
 }
@@ -120,4 +122,13 @@ export async function logout(req, res) {
     res.status(500).json({ success: false, message: "Internal server error" });
   }
 }
-export async
+
+export async function authCheck(req, res) {
+  try {
+    console.log("req.user:", req.user);
+    res.status(200).json({ success: true, user: req.user });
+  } catch (error) {
+    console.log("Error in authCheck controller", error.message);
+    res.status(500).json({ success: false, message: "Internal server error" });
+  }
+}

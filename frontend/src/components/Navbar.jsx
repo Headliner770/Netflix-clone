@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Search } from "lucide-react";
+import { LogOut, Menu, Search } from "lucide-react";
 import { useAuthStore } from "../store/authUser";
 import { useContentStore } from "../store/content";
 
@@ -10,7 +10,7 @@ const Navbar = () => {
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
-  const { contentType, setContentType } = useContentStore();
+  const { setContentType } = useContentStore();
 
   return (
     <header className="max-w-6xl mx-auto flex flex-wrap items-center justify-between p-4 h-20">
@@ -23,7 +23,7 @@ const Navbar = () => {
           />
         </Link>
 
-        {/* desktop navbar items */}
+        {/* deskop navbar items */}
         <div className="hidden sm:flex gap-2 items-center">
           <Link
             to="/"

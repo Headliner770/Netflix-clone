@@ -6,10 +6,10 @@ import Footer from "./components/Footer";
 import { Toaster } from "react-hot-toast";
 import { useAuthStore } from "./store/authUser";
 import { useEffect } from "react";
+import { Loader } from "lucide-react";
 
 function App() {
   const { user, isCheckingAuth, authCheck } = useAuthStore();
-  console.log("auth user id here:", user);
 
   useEffect(() => {
     authCheck();
