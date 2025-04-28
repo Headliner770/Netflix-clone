@@ -180,7 +180,7 @@ const AuthScreen = () => {
 
       <div className="h-2 w-full bg-[#232323]" aria-hidden="true" />
 
-      {/* 4th section*/}
+      {/* 4th sect*/}
       <div className="py-10 bg-black text-white">
         <div
           className="flex max-w-6xl mx-auto items-center justify-center flex-col-reverse md:flex-row
