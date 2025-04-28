@@ -1,10 +1,10 @@
 import express from "express";
 import {
-  getTrendingTv,
-  getTvTrailers,
-  getTvDetails,
   getSimilarTvs,
+  getTrendingTv,
+  getTvDetails,
   getTvsByCategory,
+  getTvTrailers,
 } from "../controllers/tv.controller.js";
 
 const router = express.Router();

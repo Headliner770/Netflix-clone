@@ -1,9 +1,9 @@
 import express from "express";
 import {
-  getMoviesByCategory,
-  getSimilarMovies,
   getMovieDetails,
+  getMoviesByCategory,
   getMovieTrailers,
+  getSimilarMovies,
   getTrendingMovie,
 } from "../controllers/movie.controller.js";
 

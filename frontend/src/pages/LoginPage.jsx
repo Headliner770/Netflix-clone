@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-// import { useAuthStore } from "../store/authUser";
+import { useAuthStore } from "../store/authUser";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -66,10 +66,9 @@ const LoginPage = () => {
               className="w-full py-2 bg-red-600 text-white font-semibold rounded-md
 							hover:bg-red-700
 						"
-              // disabled={isLoggingIn}
+              disabled={isLoggingIn}
             >
-              {"Login"}
-              {/* {isLoggingIn ? "Loading..." : "Login"} */}
+              {isLoggingIn ? "Loading..." : "Login"}
             </button>
           </form>
           <div className="text-center text-gray-400">
